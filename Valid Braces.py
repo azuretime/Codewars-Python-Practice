@@ -10,7 +10,7 @@ def validBraces(string):
     return len(stack) == 0 
     
 def validBraces(s):
-  while '{}' in s or '()' in s or '[]' in s:
+  while '{}' in s or '()' in s or '[]' in s: # replace from inside to outside for nested case
       s=s.replace('{}','')
       s=s.replace('[]','')
       s=s.replace('()','')
