@@ -1,12 +1,11 @@
 from fractions import gcd
-
+from functools import reduce
 def get_lcm(lst):
-  return reduce(lambda x, y : x*y/gcd(x,y), lst)
+    return reduce(lambda x, y : x*y/gcd(x,y), lst)
 
 def convertFracts(lst):
-  lcm = get_lcm([ y for x, y in lst])
-     return [ [x*lcm/y, lcm] for x, y in lst]
-     
+    lcm = get_lcm([ y for x, y in lst])
+    return [ [x*lcm/y, lcm] for x, y in lst]
 ############################################################################ 
 
 def gcd(a, b):
