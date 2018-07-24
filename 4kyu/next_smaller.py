@@ -85,4 +85,19 @@ def next_smaller(n):
         if dict(c2)==c1:
             return i
     
+  #wrong
+def next_smaller(n):
+    if n <=20: return -1       
+    l = [ int(i) for i in str(n)]
+    if l.count(l[0]) == len(l): return -1 
     
+    print(l)
+    for j in range(len(l)-2,-1,-1):
+        ls = l.copy()
+        ls[j]=l[j+1]
+        ls[j+1]=l[j]
+        ret = int(''.join(str(v) for v in ls))
+        print(ls[0]!=0,ret<n,ret,n)
+        if ls[0]!=0 and ret<n:
+            return ret
+    return -1   
