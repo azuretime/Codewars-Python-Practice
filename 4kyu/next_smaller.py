@@ -1,3 +1,5 @@
+#https://www.codewars.com/kata/next-smaller-number-with-the-same-digits
+
 def next_smaller(n):
     s = list(str(n))
     i = j = len(s) - 1
