@@ -4,12 +4,14 @@ def next_smaller(n):
     s = list(str(n))
     i = j = len(s) - 1
     while i > 0 and s[i - 1] <= s[i]: i -= 1
-    if i <= 0: return -1
+    # s[i - 1] : the lowerest digit which is > the lower digit next to it, e.g. 25413, i = 3, s[i - 1]= s[2] = 4
+    if i <= 0: return -1  # 12345, i keeps decreasing
     while s[j] >= s[i - 1]: j -= 1
-    s[i - 1], s[j] = s[j], s[i - 1]
-    s[i:] = reversed(s[i:])
+    # s[j] : the lowerest digit which is < s[i - 1], e.g. 25413, 3<4 False, no loop, j = 4, s[4] = 3  
+    s[i - 1], s[j] = s[j], s[i - 1]# exchange, s[2] = 3, s[4] = 4, 25314
+    s[i:] = reversed(s[i:])# s[3:] = ['1', '4'] => ['4', '1']
     if s[0] == '0': return -1
-    return int(''.join(s))
+    return int(''.join(s)) # s = ['2', '5', '3', '4', '1']
 ################################################    
 
 def greedy(n):
